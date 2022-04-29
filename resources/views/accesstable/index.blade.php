@@ -20,17 +20,17 @@
             <th></th>
         </tr>
         <?php $compteur=0; ?>
-        @foreach($accesstables as $accesstables)
-        <?php $compteur++; ?>
-        <tr>
-            <td> <?php echo $compteur; ?></td>
-            <td>{{$accesstables->Name}}</td>
-            <td><a href="{{$accesstables->Link}}">{{$accesstables->Link}}</a></td>
-            <td>{{$accesstables->Login}}</td>
-            <td>{{$accesstables->password}}</td>
+                 @foreach($accesstables as $access)
+                 <?php $compteur++; ?>
+                 <tr>
+                     <td><?php echo $compteur; ?></td>
+                     <td>{{$access->Name}}</td>
+                     <td><a href="{{$access->Link}}">{{$access->Link}}</a></td>
+                     <td>{{$access->Login}}</td>
+                     <td>{{$access->password}}</td>
             <td>
-                    <a class="btn btn-primary" href="{{ route('accesstable.edit',$accesstables->id) }}">Edit</a>
-                    <form action="{{ route('accesstable.destroy',$accesstables->id)}}" method="POST" style="display: inline">
+                    <a class="btn btn-primary" href="{{ route('accesstable.edit',$access->id) }}">Edit</a>
+                    <form action="{{ route('accesstable.destroy',$access->id)}}" method="POST" style="display: inline">
                     @method('DELETE')
                     @csrf
                     <input type="submit" value="Delte" class="btn btn-danger" onclick="return confirm('Are you sure ?')"/>

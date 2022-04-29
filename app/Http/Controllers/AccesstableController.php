@@ -61,7 +61,7 @@ class AccesstableController extends Controller
     {
         //
         $accesstables = Accesstable::FindOrFail($id);
-        return view('accesstable.index',compact('accesstables'));
+        return view('accesstable.edit',compact('accesstables'));
     }
 
     /**
@@ -79,7 +79,7 @@ class AccesstableController extends Controller
             'Name' => $request->Name,
             'Link' => $request->Link,
             'Login'=>$request->Login,
-            'password' => $request->Password
+            'password' => $request->password
         ]);
         return redirect()->route('accesstable.index');
     }
