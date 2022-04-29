@@ -11286,3 +11286,20 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+.ti-plus:before {
+  content: "+";
+}
+
+a.btn.btn-icon {
+  color: #fff;
+  background: #ff5c6c;
+  border: 1px solid #ff5c6c;
+  border-radius: 32px;
+  height: 45px;
+  width: 45px;
+  line-height: 27px;
+  font-weight: bolder;
+  font-size: 27px;
+  float: right;
+}

@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Accesstable;
+
 
 
 
@@ -32,5 +34,9 @@ class HomeController extends Controller
         return view('shop', compact('categories', 'products'));
     }
 
-    
+    public function tableaccess()
+    {   
+        $tableaccess = Accesstable::all();
+        return view('tableaccess', compact('tableaccess'));
+    }
 }

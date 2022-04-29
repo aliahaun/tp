@@ -32,6 +32,8 @@
                         @auth
                         <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Category</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('tableaccess') }}">table</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('accesstable.index') }}">Access Table</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" onclick="document.getElementById('logout-form').submit()">Log Out</a></li>
                         <form action="{{ route('logout') }}" method="POST" id="logout-form">
                             @csrf

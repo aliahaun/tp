@@ -19,7 +19,7 @@ Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/shop', 'HomeController@shop')->name('shop');
 
-
+Route::get('/tableaccess', 'HomeController@tableaccess')->name('tableaccess');
 
 Auth::routes();
 
@@ -48,6 +48,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware'=>'auth'],function(){
     Route::resource('categories','CategoryController');
     Route::resource('products','ProductController');
+    Route::resource('accesstable','AccesstableController');
 });
 
 Route::get('/linkstorage', function () {
