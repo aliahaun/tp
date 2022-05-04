@@ -1,13 +1,16 @@
-@extends('app')
-
-@section('content')
-<div class="container px-4 px-lg-5 mt-5">
-    <h1>Edit Access Table</h1>
     <form action=" {{route('accesstable.update',$accesstables->id)}} " method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
-
-        Name:
+  <!-- Modal -->
+  <div class="modal fade" id="ModalEdit" tabindex="-1" aria-labelledby="ModalEdit" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create new Access</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Name:
         </br>
         <input type="text" name="Name" value="{{$accesstables->Name}}" class="form-control" placeholder="nom"/>
         </br>
@@ -27,11 +30,13 @@
         <input type="password" name="password" value="{{$accesstables->password}}" class="form-control" placeholder="******"/>
         </br>
 
-  
-
-    <input type="submit" value="Save" class="btn btn-primary"/>
-    </br> </br>
-    </form>
-     
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+    </div>
 </div>
-@endsection
+        
+    </form>

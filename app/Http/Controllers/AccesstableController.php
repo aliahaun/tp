@@ -27,6 +27,9 @@ class AccesstableController extends Controller
     public function create()
     {
         //
+        $accesstables = Accesstable::all();
+        return view('accesstable.create',compact('accesstables'));
+
     }
 
     /**
@@ -38,6 +41,13 @@ class AccesstableController extends Controller
     public function store(Request $request)
     {
         //
+        Accesstable::create([
+            'Name' => $request->Name,
+            'Link' => $request->Link,
+            'Login'=>$request->Login,
+            'password' => $request->password
+        ]);
+        return redirect()->route('accesstable.index');
     }
 
     /**
