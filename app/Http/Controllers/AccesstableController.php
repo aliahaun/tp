@@ -17,6 +17,7 @@ class AccesstableController extends Controller
         //
         $accesstables = Accesstable::all();
         return view('accesstable.index',compact('accesstables'));
+ 
     }
 
     /**
@@ -41,14 +42,19 @@ class AccesstableController extends Controller
     public function store(Request $request)
     {
         //
-        Accesstable::create([
-            'Name' => $request->Name,
-            'Link' => $request->Link,
-            'Login'=>$request->Login,
-            'password' => $request->password
-        ]);
+        // Accesstable::create([
+        //     'Name' => $request->Name,
+        //     'Link' => $request->Link,
+        //     'Login'=>$request->Login,
+        //     'password' => $request->password
+        // ]);
+        // return redirect()->route('accesstable.index');
+        $accesstables =Accesstable::create($request->all());
         return redirect()->route('accesstable.index');
+       // return response()->json(array($accesstables, 201));
+
     }
+      
 
     /**
      * Display the specified resource.
@@ -56,9 +62,10 @@ class AccesstableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Accesstable $accesstables)
     {
         //
+        return $accesstables;
     }
 
     /**
@@ -68,10 +75,11 @@ class AccesstableController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {        
         $accesstables = Accesstable::FindOrFail($id);
-        return view('accesstable.edit',compact('accesstables'));
+        dd($accesstables);
+        $msg = "ok";
+        return view('accesstable.edit',compact('accesstables',"msg"));
     }
 
     /**
@@ -81,17 +89,21 @@ class AccesstableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         //
-        $accesstables= Accesstable::FindOrFail($id);
-        $accesstables->update([
-            'Name' => $request->Name,
-            'Link' => $request->Link,
-            'Login'=>$request->Login,
-            'password' => $request->password
-        ]);
-        return redirect()->route('accesstable.index');
+        // $accesstables= Accesstable::FindOrFail($id);
+        // $accesstables->update([
+        //     'Name' => $request->Name,
+        //     'Link' => $request->Link,
+        //     'Login'=>$request->Login,
+        //     'password' => $request->password
+        // ]);
+        // return redirect()->route('accesstable.index');
+        $accesstables->update($request->all());
+
+        // return response()->json($accesstables, 200);
+     
     }
 
     /**
@@ -102,10 +114,11 @@ class AccesstableController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // //
         $accesstables= Accesstable::FindOrFail($id);
         $accesstables->delete();
         return redirect()->route('accesstable.index');
-
+        // return response->json(null, 204);
+   
     }
 }

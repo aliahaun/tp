@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nomP');
             $table->decimal('Prix');
+            $table->text('description');
             $table->string('img');
             $table->unsignedBigInteger('Category_id');
             $table->foreign('Category_id')->references('id')->on('categories')->onDelete('cascade');

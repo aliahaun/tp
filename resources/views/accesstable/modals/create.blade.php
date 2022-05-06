@@ -27,17 +27,17 @@
 
                     Link:
                         </br>
-                        <input type="text" name="Link" value="{{old('Link')}}" class="form-control" placeholder="prix"/>
+                        <input type="text" name="Link" value="{{old('Link')}}" class="form-control" placeholder="Link"/>
                         </br>
 
                     Login:
                         </br>
-                        <input type="text" name="Login" value="{{old('Login')}}" class="form-control" placeholder="prix"/>
+                        <input type="text" name="Login" value="{{old('Login')}}" class="form-control" placeholder="Login"/>
                         </br>
 
                     Password:
                         </br>
-                        <input type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="prix"/>
+                        <input type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="Password"/>
                         </br>
                 </div>
                 <div class="modal-footer">

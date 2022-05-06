@@ -2,7 +2,7 @@
         @method('PUT')
         @csrf
   <!-- Modal -->
-  <div class="modal fade" id="ModalEdit" tabindex="-1" aria-labelledby="ModalEdit" aria-hidden="true">
+  <div class="modal fade" id="ModalEdit{{$accesstables->id}}" tabindex="-1" aria-labelledby="ModalEdit" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">

@@ -31,15 +31,18 @@
                      <td>{{$access->Login}}</td>
                      <td>{{$access->password}}</td>
             <td>
-                    <a  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalEdit"  href="#">Edit</a>                
-                    
+                <a  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalEdit{{$access->id}}"  href="#">Edit</a>                
+                    <a class="btn btn-primary" href="{{ route('accesstable.edit',$access->id)}}">Edit</a>
                     <form action="{{ route('accesstable.destroy',$access->id)}}" method="POST" style="display: inline">
                     @method('DELETE')
                     @csrf
                     <input type="submit" value="Delte" class="btn btn-danger" onclick="return confirm('Are you sure ?')"/>
                     </form>
             </td>
-            @include('accesstable.modals.edit')
+            @if(isset($msg) && $msg =="ok")
+
+             @include('accesstable.modals.edit') 
+             @endif
         </tr>
         @endforeach
        </thread>
